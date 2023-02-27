@@ -35,7 +35,7 @@ services:
       - ./etc:/etc/odoo
 #      - ./log:/var/log
       - odoo-web-data:/var/lib/odoo
-#    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
+    entrypoint: "/usr/bin/odoo" # -c /etc/odoo/odoo.conf"
     restart: always             # run as a service
 
 
