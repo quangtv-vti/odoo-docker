@@ -7,9 +7,8 @@ services:
     user: root
     env_file: .env
     restart: always             # run as a service
-#    volumes:
-#        - ./postgresql:/var/lib/postgresql/data
     volumes:
+#      - ./postgresql:/var/lib/postgresql/data
       - odoo-db-data:/var/lib/postgresql/data/pgdata
 
   web:
