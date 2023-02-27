@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-#    container_name: ${DB_HOST}
+    container_name: "${DB_HOST}"
     image: ${DB_IMAGE}:${DB_TAG}
 #    image: postgres:15
     user: root
@@ -13,7 +13,7 @@ services:
 
   web:
 #    image: odoo:16
-#    container_name: ${WEB_HOST}
+    container_name: "${WEB_HOST}"
     image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
     user: ${WEB_USER}
     build: ./
