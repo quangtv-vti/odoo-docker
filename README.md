@@ -1,3 +1,6 @@
+# Maintainer base on "https://github.com/minhng92/odoo-16-docker-compose"
+# Maintainer Quangtv
+
 # Quick install
 
 Installing Odoo 16 with one command.
@@ -7,7 +10,7 @@ Installing Odoo 16 with one command.
 Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run:
 
 ``` bash
-curl -s https://github.com/quangtv-vti/odoo-docker/blob/main/run.sh | sudo bash -s odoo-one 10016 20016
+curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/main/run.sh | sudo bash -s odoo-one 10016 20016
 ```
 
 to set up first Odoo instance @ `localhost:10016` (default master password: `quangnhung.odoo.com`)
@@ -15,7 +18,7 @@ to set up first Odoo instance @ `localhost:10016` (default master password: `qua
 and
 
 ``` bash
-curl -s https://github.com/quangtv-vti/odoo-docker/blob/main/run.sh | sudo bash -s odoo-two 11016 21016
+curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/main/run.sh | sudo bash -s odoo-two 11016 21016
 ```
 
 to set up another Odoo instance @ `localhost:11016` (default master password: `quangnhung.odoo.com`)
