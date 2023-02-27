@@ -1,0 +1,52 @@
+version: '3'
+services:
+  db:
+    container_name: ${DB_HOST}
+    image: ${DB_IMAGE}:${DB_TAG}
+#    image: postgres:15
+    user: root
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo16@2022      
+      - POSTGRES_DB=postgres
+    restart: always             # run as a service
+#    volumes:
+#        - ./postgresql:/var/lib/postgresql/data
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+
+  web:
+#    image: odoo:16
+    container_name: ${WEB_HOST}
+    image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
+    user: ${WEB_USER}
+    build: ./
+    depends_on:
+      - db
+    ports:
+      - "${WEB_PORT}:8069"
+      - "${CHAT_PORT}:8071" # live chat
+      - "${CHAT_PORT}:8072" # live chat
+    tty: true
+    command: --
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo16@2023
+      - VIRTUAL_HOST=quangnhung.odoo.com
+    volumes:
+      #- /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
+      # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
+      - ./addons:/mnt/extra-addons
+      - ./addons-customize:/mnt/extra-addons-customize
+      - ./etc:/etc/odoo
+#      - ./log:/var/log
+      - odoo-web-data:/var/lib/odoo
+    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
+    restart: always             # run as a service
+
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
