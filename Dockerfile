@@ -72,7 +72,7 @@ RUN chown odoo /etc/odoo/odoo.conf \
     && mkdir -p /mnt/extra-addons \
     && chown -R odoo /mnt/extra-addons \
     && mkdir -p /mnt/extra-addons-customize \
-    && chown -R odoo /mnt/extra-addons-customize \
+    && chown -R odoo /mnt/extra-addons-customize
 #    && mkdir -p /var/log/odoo \
 #    && chown -R odoo /var/log/odoo \
 
