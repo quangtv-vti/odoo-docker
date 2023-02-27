@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# db info
+DB_HOST='db'
+DB_PORT=5432
+DB_USER='odoo'
+DB_PASSWD='odoo16@2023'
+
 set -e
 
 if [ -v PASSWORD_FILE ]; then
@@ -8,10 +14,14 @@ fi
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
-: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
-: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
-: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
+: ${HOST:=${DB_PORT_5432_TCP_ADDR:=$DB_HOST}}
+: ${PORT:=${DB_PORT_5432_TCP_PORT:=$DB_PORT}}
+: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:=$DB_USER}}}
+: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:=$DB_PASSWD}}}
+
+# install python packages
+pip3 install pip --upgrade
+pip3 install -r /etc/odoo/requirements.txt
 
 DB_ARGS=()
 function check_config() {
