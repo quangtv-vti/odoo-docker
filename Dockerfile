@@ -1,4 +1,7 @@
 FROM python:3.10-slim-bullseye
+
+# RUN pip install psycopg2
+
 # MAINTAINER Odoo S.A. <info@odoo.com>
 
 SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
