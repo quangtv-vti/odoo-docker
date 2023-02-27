@@ -5,6 +5,8 @@ CHAT=$3
 # clone Odoo directory
 git clone --depth=1 https://github.com/quangtv-vti/odoo-docker $DESTINATION
 rm -rf $DESTINATION/.git
+cp .env.template .env
+
 # set permission
 mkdir -p $DESTINATION/postgresql
 sudo chmod -R 777 $DESTINATION

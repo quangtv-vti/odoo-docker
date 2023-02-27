@@ -5,10 +5,7 @@ services:
     image: ${DB_IMAGE}:${DB_TAG}
 #    image: postgres:15
     user: root
-    environment:
-      - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo16@2022      
-      - POSTGRES_DB=postgres
+    env_file: .env
     restart: always             # run as a service
 #    volumes:
 #        - ./postgresql:/var/lib/postgresql/data
@@ -25,15 +22,11 @@ services:
       - db
     ports:
       - "${WEB_PORT}:8069"
-      - "${CHAT_PORT}:8071" # live chat
       - "${CHAT_PORT}:8072" # live chat
+
     tty: true
     command: --
-    environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo16@2023
-      - VIRTUAL_HOST=quangnhung.odoo.com
+    env_file: .env
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
