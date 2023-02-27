@@ -1,6 +1,5 @@
-# Maintainer base on "https://github.com/minhng92/odoo-16-docker-compose"
+# Modified based on "https://github.com/minhng92/odoo-16-docker-compose"
 # Maintainer Quangtv
-
 # Quick install
 
 Installing Odoo 16 with one command.
