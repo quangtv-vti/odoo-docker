@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: "${DB_HOST}"
+    container_name: db
     image: ${DB_IMAGE}:${DB_TAG}
 #    image: postgres:15
     user: root
