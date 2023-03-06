@@ -2,10 +2,8 @@
 DESTINATION=$1
 PORT=$2
 CHAT=$3
-web_container_name="$DESTINATION'_${WEB_HOST}'"
-db_container_name="$DESTINATION'_${DB_HOST}'"
-
-db_container_name
+web_container_name="$DESTINATION"'_${WEB_HOST}'
+db_container_name="$DESTINATION"'_${DB_HOST}'
 
 # clone Odoo directory
 git clone --depth=1 https://github.com/quangtv-vti/odoo-docker $DESTINATION
