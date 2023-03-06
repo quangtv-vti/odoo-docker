@@ -29,7 +29,10 @@ services:
 
     tty: true
     command: --
-    env_file: .env
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo16@2023
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
