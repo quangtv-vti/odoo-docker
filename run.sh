@@ -10,7 +10,7 @@ db_container_name
 # clone Odoo directory
 git clone --depth=1 https://github.com/quangtv-vti/odoo-docker $DESTINATION
 rm -rf $DESTINATION/.git
-cp .env.template .env
+cp $DESTINATION/.env.template $DESTINATION/.env
 
 # set permission
 mkdir -p $DESTINATION/postgresql
