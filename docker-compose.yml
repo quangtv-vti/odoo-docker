@@ -47,5 +47,5 @@ services:
 
 
 volumes:
-  odoo-db-data:
+#   odoo-db-data:
   odoo-web-data:
