@@ -5,7 +5,11 @@ services:
     image: ${DB_IMAGE}:${DB_TAG}
 #    image: postgres:15
     user: root
-    env_file: .env
+    env_file:
+      POSTGRES_DB=postgres
+      POSTGRES_USER=odoo
+      POSTGRES_PASSWORD=odoo16@2023
+      PGDATA=/var/lib/postgresql/data/pgdata
     restart: always             # run as a service
     volumes:
 #      - ./postgresql:/var/lib/postgresql/data
