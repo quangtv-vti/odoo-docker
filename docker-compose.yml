@@ -5,14 +5,18 @@ services:
     image: ${DB_IMAGE}:${DB_TAG}
 #    image: postgres:15
     user: root
-    env_file: .env
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo16@2023
+      - PGDATA=/var/lib/postgresql/data/pgdata
     restart: always             # run as a service
     volumes:
 #      - ./postgresql:/var/lib/postgresql/data
       - odoo-db-data:/var/lib/postgresql/data/pgdata
 
   web:
-    image: odoo:14
+#    image: odoo:14
     container_name: "${WEB_HOST}"
     image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
     user: ${WEB_USER}
@@ -25,7 +29,10 @@ services:
 
     tty: true
     command: --
-    env_file: .env
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo16@2023
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
@@ -35,7 +42,7 @@ services:
       - ./etc:/etc/odoo
 #      - ./log:/var/log
       - odoo-web-data:/var/lib/odoo
-    entrypoint: "/usr/bin/odoo" # -c /etc/odoo/odoo.conf"
+ #   entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
     restart: always             # run as a service
 
 
