@@ -1,30 +1,30 @@
 # Modified based on "https://github.com/minhng92/odoo-16-docker-compose"
 # Quick install
 
-Installing Odoo 16 with one command.
+Installing Odoo 14 with one command.
 
 (Supports multiple Odoo instances on one server)
 
 Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run:
 
 ``` bash
-curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/master/run.sh | sudo bash -s odoo-one 10016 20016
+curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/odoo14/run.sh | sudo bash -s odoo-one 10026 20026
 ```
 
-to set up first Odoo instance @ `localhost:10016` (default master password: `quangnhung.odoo.com`)
+to set up first Odoo instance @ `localhost:10026` (default master password: `quangnhung.odoo.com`)
 
 and
 
 ``` bash
-curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/master/run.sh | sudo bash -s odoo-two 11016 21016
+curl -s https://raw.githubusercontent.com/quangtv-vti/odoo-docker/odoo14/run.sh | sudo bash -s odoo-two 11026 21026
 ```
 
-to set up another Odoo instance @ `localhost:11016` (default master password: `quangnhung.odoo.com`)
+to set up another Odoo instance @ `localhost:11026` (default master password: `quangnhung.odoo.com`)
 
 Some arguments:
 * First argument (**odoo-one**): Odoo deploy folder
-* Second argument (**10016**): Odoo port
-* Third argument (**20016**): live chat port
+* Second argument (**10026**): Odoo port
+* Third argument (**20026**): live chat port
 
 If `curl` is not found, install it:
 
@@ -41,7 +41,7 @@ Start the container:
 docker-compose up
 ```
 
-* Then open `localhost:10016` to access Odoo 16.0. If you want to start the server with a different port, change **10016** to another value in **docker-compose.yml**:
+* Then open `localhost:10026` to access Odoo 14.0. If you want to start the server with a different port, change **10026** to another value in **docker-compose.yml**:
 
 ```
 ports:
@@ -121,6 +121,6 @@ server {
 
 # docker-compose.yml
 
-* odoo:16.0
+* odoo:14.0
 * postgres:15
-* python:3.10
+
