@@ -15,7 +15,7 @@ services:
 # #      - ./postgresql:/var/lib/postgresql/data
 #       - odoo-db-data:/var/lib/postgresql/data/pgdata
 
-  web:
+  web14:
     image: odoo:14
     container_name: "${WEB_HOST}"
     image: ${WEB_IMAGE_NAME}:${WEB_IMAGE_TAG}
