@@ -2,8 +2,8 @@
 DESTINATION=$1
 PORT=$2
 CHAT=$3
-web_container_name="$DESTINATION"'_${WEB_HOST}'
-db_container_name="$DESTINATION"'_${DB_HOST}'
+web_container_name="$DESTINATION'_${WEB_HOST}'"
+db_container_name="$DESTINATION'_${DB_HOST}'"
 
 db_container_name
 
